@@ -1,0 +1,18 @@
+SMAP
+userRequestManagement_jsp.java
+JSP
+*S JSP
+*F
++ 0 userRequestManagement.jsp
+userRequestManagement.jsp
+*L
+5,33:46
+38,15:80
+52,2:95
+54,4:97,3
+58,3:109
+61:112,3
+62,5:115
+67,12:121
+78,9:133
+*E
