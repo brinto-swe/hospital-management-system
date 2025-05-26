@@ -1,0 +1,371 @@
+/* General Styling */
+.bg-main{
+    background: #9083D5;
+    background: radial-gradient(circle, rgba(144, 131, 213, 1) 100%, rgba(128, 117, 147, 1) 100%);
+}
+.btn-main{
+    color: #FFFFFF;
+    background-color: #9083D5;
+    /*    background-color: radial-gradient(circle, rgba(144, 131, 213, 1) 100%, rgba(128, 117, 147, 1) 100%);*/
+}
+.text-primary{
+    color:#fffff;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 15px 90px;
+    border-bottom: 1px solid #ddd;
+    height: 90px;
+}
+
+header .logo img {
+    max-width: 100%;
+    height: 50px;
+}
+
+.homepage-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.homepage-nav ul li {
+    margin: 0 15px;
+}
+
+.homepage-nav ul li a {
+    text-decoration: none;
+    color: #9083D5;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.homepage-nav ul li.active a,
+.homepage-nav ul li a:hover {
+    color: #FFFFFF;
+    background: #9083D5;
+    background: radial-gradient(circle, rgba(144, 131, 213, 1) 100%, rgba(128, 117, 147, 1) 100%);
+    padding:5px 10px;
+    border-radius: 8px;
+}
+
+/* Banner */
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: black;
+    margin-left: 90px;
+}
+
+.banner-text {
+    width: 40%;
+
+}
+.banner-text h1{
+    font-size: 55px;
+}
+.banner-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* About Us Section */
+.about-us {
+    display: flex; 
+    justify-content: space-around;
+    padding: 40px;
+    background-color: #f9f9f9;
+}
+.about-us-text{
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Services Section */
+.services {
+    text-align: center;
+    padding: 40px;
+}
+
+.service-card{
+    display: flex;
+    justify-content:center;
+    gap:45px;
+    padding-top: 40px;
+}
+
+.service-item img {
+    max-width: 100%;
+}
+
+/* Contact Section */
+.contact {
+    text-align: center;
+    padding: 40px;
+    background-color: #f1f1f1;
+}
+
+.contact form {
+    display: inline-block;
+    width: 50%;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.contact button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Footer Container & Overall Styles */
+.site-footer {
+    background-color: #f8f8f8;
+    padding: 20px 0;
+    color: #333;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+/* Each Footer Section */
+.footer-section {
+    flex: 1 1 200px;  /* Grow, shrink; base width 200px */
+    margin: 10px;
+}
+
+/* Logo Section */
+.footer-logo-img {
+    width: 100px;
+}
+.footer-title {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Headings for Sections */
+.footer-heading {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Footer List Styles */
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-list li {
+    margin-bottom: 5px;
+}
+.footer-list a {
+    text-decoration: none;
+    color: #333;
+}
+.footer-list a:hover {
+    color: #005a8d;
+}
+
+/* Footer Bottom (Copyright Section) */
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+    color: #777;
+    font-size: 14px;
+}
+
+
+/*Admin Navbar styles*/
+/*===== VARIABLES CSS Y SASS =====*/
+/*Varibles sass*/
+/*Variables css*/
+/*===== Colores =====*/
+
+
+/*===== Fuente y tipografia =====*/
+
+/*===== z index =====*/
+
+
+/*===== BASE =====*/
+*, ::before, ::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+
+h1 {
+    margin: 0;
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*=====  NAV =====*/
+.l-navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 56px;
+    height: auto;
+    margin-top: 90px;
+    background-color: #9083D5;
+    padding: 20px 8px 32px;
+    transition: width 0.5s;
+    z-index: 10;
+}
+
+.nav {
+    height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.nav__logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 32px;
+    padding: 8px;
+}
+
+.nav__logo-icon {
+    margin-right: 19.2px;
+}
+
+.nav__logo-text {
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+.nav__toggle {
+    position: absolute;
+    top: 17.6px;
+    right: -9.6px;
+    width: 18px;
+    height: 18px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #12192C;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+.nav__link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+    color: #FFFFFF;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+
+.nav__link:hover {
+    background-color: #F5A623;
+    color: #12192C;
+}
+
+.nav__icon {
+    font-size: 24px;
+    margin-right: 16px;
+}
+
+.nav__text {
+    font-weight: 700;
+}
+
+/*Show menu*/
+.show {
+    width: 168px;
+}
+
+/*Rotate toggle*/
+.rotate {
+    transform: rotate(180deg);
+    transition: .5s;
+}
+
+/*Active links menu*/
+.active {
+    background-color: #12192C;
+    color: #FFFFFF;
+}
+
+/*Add padding body*/
+.expander {
+    margin-left: 192px;
+    padding: 16px 0 0 192px;
+    transition: .5s;
+}
+#main-content {
+    transition: margin-left .5s;
+    margin-left: 56px;
+    padding: 20px;
+}
+#main-content.expander {
+    margin-left: 280px;
+}
+.l-navbar.show {
+    width: 280px;
+}
