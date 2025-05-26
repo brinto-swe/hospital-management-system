@@ -22,19 +22,24 @@ public class DoctorServlet extends HttpServlet {
         String startTime = request.getParameter("startTime");
         String endTime = request.getParameter("endTime");
         
-        // Debug: log received parameters
+        // Retrieve the password parameter
+        String doctorPassword = request.getParameter("doctorPassword");
+        
+        // Debug: Log received parameters
         System.out.println("Adding Doctor - ID: " + doctorId 
                 + ", Name: " + doctorName 
                 + ", Dept: " + deptId 
                 + ", Contact: " + contact 
                 + ", Start: " + startTime 
-                + ", End: " + endTime);
+                + ", End: " + endTime 
+                + ", Password: " + doctorPassword);
         
         Connection con = null;
         PreparedStatement ps = null;
         try {
             con = DBConnection.getConnection();
-            String sql = "INSERT INTO DOCTORS (DOCTOR_ID, DOCTOR_NAME, DEPT_ID, CONTACT, START_TIME, END_TIME) VALUES (?, ?, ?, ?, ?, ?)";
+            // Modified SQL to include the PASSWORD column
+            String sql = "INSERT INTO DOCTORS (DOCTOR_ID, DOCTOR_NAME, DEPT_ID, CONTACT, START_TIME, END_TIME, PASSWORD) VALUES (?, ?, ?, ?, ?, ?, ?)";
             ps = con.prepareStatement(sql);
             ps.setString(1, doctorId);
             ps.setString(2, doctorName);
@@ -42,18 +47,19 @@ public class DoctorServlet extends HttpServlet {
             ps.setString(4, contact);
             ps.setString(5, startTime);
             ps.setString(6, endTime);
+            ps.setString(7, doctorPassword);
             
             int result = ps.executeUpdate();
             if(result > 0) {
                 System.out.println("Doctor " + doctorId + " added successfully.");
-                response.sendRedirect("doctorsManagement.jsp?msg=Doctor Added");
+                response.sendRedirect("doctorManagement.jsp?msg=Doctor+Added");
             } else {
                 System.out.println("Insertion failed, result: " + result);
-                response.sendRedirect("doctorsManagement.jsp?error=Insertion Failed");
+                response.sendRedirect("doctorManagement.jsp?error=Insertion+Failed");
             }
         } catch(Exception e) {
             e.printStackTrace();
-            response.sendRedirect("doctorsManagement.jsp?error=" + e.getMessage());
+            response.sendRedirect("doctorManagement.jsp?error=" + e.getMessage());
         } finally {
             if(ps != null) try { ps.close(); } catch(Exception ex){}
             if(con != null) try { con.close(); } catch(Exception ex){}

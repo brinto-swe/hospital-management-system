@@ -32,7 +32,7 @@
                     <li><a href="index.jsp">Home</a></li>
                     <li><a href="about.jsp">About Us</a></li>
                     <li><a href="signup.jsp">Sign Up</a></li>
-                    <li><a href="signin.jsp">Sign In</a></li>
+                    <li class="active"><a href="userAppoinment.jsp">Appoinment</a></li>
                     <li><a href="contact.jsp">Contact</a></li>
                 </ul>
             </nav>
@@ -40,7 +40,7 @@
 
         <div class="container mx-auto place-items-center p-6">
             <!-- Step 1: Select Date, Time, and Department -->
-            <div class="card bg-white shadow-lg p-6 rounded mb-6">
+            <div class="card bg-white shadow-lg p-6 rounded mb-6 items-center">
                 <h2 class="text-2xl font-bold mb-4">Step 1: Select Details</h2>
                 <form method="post" action="userAppointment.jsp">
                     <div class="mb-4">
@@ -53,7 +53,7 @@
                     </div>
                     <div class="mb-4">
                         <label for="deptId" class="block text-gray-700">Department:</label>
-                        <select id="deptId" name="deptId" required class="select select-bordered w-full">
+                        <select id="deptId" name="deptId" required class="select select-bordered w-lg">
                             <%
                                 Connection conDep = null;
                                 PreparedStatement psDep = null;
@@ -95,7 +95,7 @@
                         </select>
                     </div>
                     <div class="mb-4">
-                        <button type="submit" name="btn" value="getDoctors" class="btn btn-primary w-full">Get Available Doctors</button>
+                        <button type="submit" name="btn" value="getDoctors" class="btn btn-main w-lg">Get Available Doctors</button>
                     </div>
                 </form>
             </div>
@@ -166,7 +166,7 @@
 
                 if (availableDoctors.size() > 0) {
             %>
-            <div class="card bg-white shadow-lg p-6 rounded">
+            <div class="card bg-white shadow-lg p-6 rounded items-center">
                 <h2 class="text-2xl font-bold mb-4">Step 2: Select Doctor & Confirm Appointment</h2>
                 <form action="BookAppointmentServlet" method="post" class="space-y-4">
                     <input type="hidden" name="apptDate" value="<%= apptDate%>">
@@ -174,7 +174,7 @@
                     <input type="hidden" name="deptId" value="<%= selectedDeptId%>">
                     <div class="mb-4">
                         <label for="doctorId" class="block text-gray-700">Available Doctors:</label>
-                        <select id="doctorId" name="doctorId" required class="select select-bordered w-full">
+                        <select id="doctorId" name="doctorId" required class="select select-bordered w-lg">
                             <%
                                 for (String[] doc : availableDoctors) {
                             %>
@@ -185,7 +185,7 @@
                         </select>
                     </div>
                     <div class="mb-4">
-                        <button type="submit" class="btn btn-primary w-full">Book Appointment</button>
+                        <button type="submit" class="btn btn-main w-lg">Book Appointment</button>
                     </div>
                 </form>
             </div>

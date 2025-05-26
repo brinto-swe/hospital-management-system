@@ -25,7 +25,7 @@
                 <ul>
                     <li><a href="index.jsp">Home</a></li>
                     <li><a href="about.jsp">About Us</a></li>
-                    <li><a href="signup.jsp">Sign Up</a></li>
+                    <li class="active"><a href="signup.jsp">Sign Up</a></li>
                     <li><a href="signIn.jsp">Sign In</a></li>
                     <li><a href="contact.jsp">Contact</a></li>
                 </ul>

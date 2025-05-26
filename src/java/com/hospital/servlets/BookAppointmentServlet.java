@@ -14,9 +14,19 @@ public class BookAppointmentServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException {
+        
+        // Retrieve appointment parameters from the form
         String apptDate = request.getParameter("apptDate");
         String apptTime = request.getParameter("apptTime");
         String doctorId = request.getParameter("doctorId");
+        
+        // Retrieve the user ID from the session (set at user login)
+        HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute("userId") == null) {
+            response.sendRedirect("userLogin.jsp?error=Please+login+first");
+            return;
+        }
+        String userId = (String) session.getAttribute("userId");
         
         Connection con = null;
         PreparedStatement psCheck = null;
@@ -24,43 +34,46 @@ public class BookAppointmentServlet extends HttpServlet {
         ResultSet rs = null;
         try {
             con = DBConnection.getConnection();
-            // Final slot check: count appointments for this doctor on this appointment date.
+            
+            // Check if the doctor already has reached maximum appointments (e.g., 10) for the day
             String checkSql = "SELECT COUNT(*) AS cnt FROM APPOINTMENTS WHERE DOCTOR_ID = ? AND APPOINTMENT_DATE = ?";
             psCheck = con.prepareStatement(checkSql);
             psCheck.setString(1, doctorId);
             psCheck.setString(2, apptDate);
             rs = psCheck.executeQuery();
+            
             int count = 0;
-            if(rs.next()){
+            if (rs.next()) {
                 count = rs.getInt("cnt");
             }
             rs.close();
             psCheck.close();
-
-            if(count >= 10) {
-                response.sendRedirect("userAppointment.jsp?error=Selected doctor has reached maximum appointments for the day.");
+            
+            if (count >= 10) {
+                response.sendRedirect("userAppointment.jsp?error=Selected+doctor+has+reached+maximum+appointments+for+the+day");
                 return;
             }
             
-            // Insert the appointment record.
-            String insertSql = "INSERT INTO APPOINTMENTS (DOCTOR_ID, APPOINTMENT_DATE, APPOINTMENT_TIME) VALUES (?, ?, ?)";
+            // Insert based on the new requirement: include USER_ID
+            String insertSql = "INSERT INTO APPOINTMENTS (USER_ID, DOCTOR_ID, APPOINTMENT_DATE, APPOINTMENT_TIME) VALUES (?, ?, ?, ?)";
             psInsert = con.prepareStatement(insertSql);
-            psInsert.setString(1, doctorId);
-            psInsert.setString(2, apptDate);
-            psInsert.setString(3, apptTime);
+            psInsert.setString(1, userId);
+            psInsert.setString(2, doctorId);
+            psInsert.setString(3, apptDate);
+            psInsert.setString(4, apptTime);
             
             int result = psInsert.executeUpdate();
-            if(result > 0) {
-                response.sendRedirect("userAppointment.jsp?msg=Appointment Booked Successfully");
+            if (result > 0) {
+                response.sendRedirect("userAppointment.jsp?msg=Appointment+Booked+Successfully");
             } else {
-                response.sendRedirect("userAppointment.jsp?error=Appointment booking failed");
+                response.sendRedirect("userAppointment.jsp?error=Appointment+booking+failed");
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             response.sendRedirect("userAppointment.jsp?error=" + e.getMessage());
         } finally {
-            if(psInsert != null) try { psInsert.close(); } catch(Exception ex){}
-            if(con != null) try { con.close(); } catch(Exception ex){}
+            if (psInsert != null) try { psInsert.close(); } catch(Exception ex) {}
+            if (con != null) try { con.close(); } catch(Exception ex) {}
         }
     }
 }

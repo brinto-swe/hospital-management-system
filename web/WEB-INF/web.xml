@@ -141,6 +141,15 @@
         <servlet-name>DeleteTreatmentServlet</servlet-name>
         <url-pattern>/DeleteTreatmentServlet</url-pattern>
     </servlet-mapping>
+    <!-- RegisterStaffServlet: Processes new staff registrations -->
+    <servlet>
+        <servlet-name>RegisterStaffServlet</servlet-name>
+        <servlet-class>com.hospital.servlets.RegisterStaffServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterStaffServlet</servlet-name>
+        <url-pattern>/RegisterStaffServlet</url-pattern>
+    </servlet-mapping>
     <!-- DeleteStaffServlet Mapping -->
     <servlet>
         <servlet-name>DeleteStaffServlet</servlet-name>
@@ -254,7 +263,25 @@
         <url-pattern>/DeleteDoctorServlet</url-pattern>
     </servlet-mapping>
 
-
+    <!-- DoctorLoginServlet: Processes doctor login requests -->
+    <servlet>
+        <servlet-name>DoctorLoginServlet</servlet-name>
+        <servlet-class>com.hospital.servlets.DoctorLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DoctorLoginServlet</servlet-name>
+        <url-pattern>/DoctorLoginServlet</url-pattern>
+    </servlet-mapping>
+    
+    <!-- UpdateAppointmentStatusServlet: Updates appointment status from 'pending' to 'done' -->
+    <servlet>
+        <servlet-name>UpdateAppointmentStatusServlet</servlet-name>
+        <servlet-class>com.hospital.servlets.UpdateAppointmentStatusServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateAppointmentStatusServlet</servlet-name>
+        <url-pattern>/UpdateAppointmentStatusServlet</url-pattern>
+    </servlet-mapping>
 
 
 
@@ -299,7 +326,54 @@
         <url-pattern>/BookAppointmentServlet</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+        <servlet-name>TestNameServlet</servlet-name>
+        <servlet-class>com.hospital.servlets.TestNameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TestNameServlet</servlet-name>
+        <url-pattern>/TestNameServlet</url-pattern>
+    </servlet-mapping>
     
+    <!-- AssignLabTestServlet: For doctors to assign lab tests to a user -->
+    <servlet>
+        <servlet-name>AssignLabTestServlet</servlet-name>
+        <servlet-class>com.hospital.servlets.AssignLabTestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AssignLabTestServlet</servlet-name>
+        <url-pattern>/AssignLabTestServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- UpdateLabReportServlet: For admin to input/edit lab test results -->
+    <servlet>
+        <servlet-name>UpdateLabReportServlet</servlet-name>
+        <servlet-class>com.hospital.servlets.UpdateLabReportServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateLabReportServlet</servlet-name>
+        <url-pattern>/UpdateLabReportServlet</url-pattern>
+    </servlet-mapping>
+    
+    <!-- DoctorLabReportsServlet: Handles filtering lab reports by Appointment ID and Date -->
+    <servlet>
+        <servlet-name>DoctorLabReportsServlet</servlet-name>
+        <servlet-class>com.hospital.servlets.DoctorLabReportsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DoctorLabReportsServlet</servlet-name>
+        <url-pattern>/DoctorLabReportsServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- ViewLabReportServlet: Retrieves lab report details when clicking 'View Report' -->
+    <servlet>
+        <servlet-name>ViewLabReportServlet</servlet-name>
+        <servlet-class>com.hospital.servlets.ViewLabReportServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewLabReportServlet</servlet-name>
+        <url-pattern>/ViewLabReportServlet</url-pattern>
+    </servlet-mapping>
     <!-- (Optional) Welcome File List -->
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

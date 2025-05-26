@@ -10,32 +10,38 @@ import javax.servlet.http.*;
 
 @WebServlet(name = "UpdateStaffServlet", urlPatterns = {"/UpdateStaffServlet"})
 public class UpdateStaffServlet extends HttpServlet {
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException {
-        String staffId = request.getParameter("staffId");
+        int staffId = Integer.parseInt(request.getParameter("staffId"));
         String name = request.getParameter("name");
         String position = request.getParameter("position");
-        String department = request.getParameter("department");
+        int departmentId = Integer.parseInt(request.getParameter("department_id"));
         String contact = request.getParameter("contact");
-
+        
+        Connection con = null;
+        PreparedStatement ps = null;
         try {
-            Connection con = DBConnection.getConnection();
-            String sql = "UPDATE STAFF SET NAME = ?, POSITION = ?, DEPARTMENT = ?, CONTACT = ? WHERE STAFF_ID = ?";
-            PreparedStatement ps = con.prepareStatement(sql);
+            con = DBConnection.getConnection();
+            String sql = "UPDATE STAFF SET name = ?, position = ?, department_id = ?, contact = ? WHERE staff_id = ?";
+            ps = con.prepareStatement(sql);
             ps.setString(1, name);
             ps.setString(2, position);
-            ps.setString(3, department);
+            ps.setInt(3, departmentId);
             ps.setString(4, contact);
-            ps.setInt(5, Integer.parseInt(staffId));
+            ps.setInt(5, staffId);
             int result = ps.executeUpdate();
-            if(result > 0) {
-                response.sendRedirect("staffManagement.jsp?msg=Staff Updated");
+            if(result > 0){
+                response.sendRedirect("staffManagement.jsp?msg=Staff+updated+successfully");
             } else {
-                response.sendRedirect("updateStaff.jsp?error=Update Failed");
+                response.sendRedirect("staffManagement.jsp?error=Update+failed");
             }
         } catch(Exception e) {
             e.printStackTrace();
-            response.sendRedirect("updateStaff.jsp?error=Exception Occurred");
+            response.sendRedirect("staffManagement.jsp?error=" + e.getMessage());
+        } finally {
+            if(ps != null) try { ps.close(); } catch(Exception ex){}
+            if(con != null) try { con.close(); } catch(Exception ex){}
         }
     }
 }

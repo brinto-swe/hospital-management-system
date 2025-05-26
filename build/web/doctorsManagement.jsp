@@ -11,38 +11,90 @@
     <head>
         <meta charset="UTF-8">
         <title>Doctor Management - Admin Panel</title>
-        <!-- Tailwind CSS & DaisyUI -->
+        <!-- Tailwind CSS & DaisyUI & Font Awesome-->
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     </head>
     <body class="bg-gray-100">
         <!-- Header -->
-        <header class="bg-blue-600 text-white p-4 flex items-center justify-between">
-            <div class="flex items-center">
-                <img src="images/logo.png" alt="MediLab Hospital" class="h-10 mr-3">
-                <h1 class="text-lg font-bold">Admin Panel - Doctor Management</h1>
+        <header class="flex">
+            <div class="">
+                <img src="images/logo.png" alt="MediLab Hospital" style="height:40px;">
             </div>
+            <h1 class="text-3xl font-bold">Department Management</h1>
+            <a href="logout.jsp">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
         </header>
+        <div class="l-navbar" id="navbar">
+            <nav class="nav">
+                <div>
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="fas fa-angle-double-right"></i>
+                    </div>
 
-        <div class="flex">
-            <!-- Sidebar -->
-            <nav class="w-64 bg-gray-800 text-white min-h-screen p-5">
-                <ul>
-                    <li><a href="adminDashboard.jsp" class="block py-2 px-4 hover:bg-gray-700 rounded">Dashboard</a></li>
-                    <li><a href="staffManagement.jsp" class="block py-2 px-4 hover:bg-gray-700 rounded">Staff Management</a></li>
-                    <li><a href="labManagement.jsp" class="block py-2 px-4 hover:bg-gray-700 rounded">Lab Management</a></li>
-                    <li><a href="wardManagement.jsp" class="block py-2 px-4 hover:bg-gray-700 rounded">Ward Management</a></li>
-                    <li><a href="treatmentManagement.jsp" class="block py-2 px-4 hover:bg-gray-700 rounded">Treatment Management</a></li>
-                    <li><a href="pharmacyManagement.jsp" class="block py-2 px-4 hover:bg-gray-700 rounded">Pharmacy Management</a></li>
-                    <li><a href="patientManagement.jsp" class="block py-2 px-4 hover:bg-gray-700 rounded">Patient Management</a></li>
-                    <li><a href="departmentManagement.jsp" class="block py-2 px-4 hover:bg-gray-700 rounded">Department Management</a></li>
-                    <li><a href="doctorsManagement.jsp" class="block py-2 px-4 hover:bg-gray-700 rounded">Doctor Management</a></li>
-                </ul>
+                    <div class="nav__list">
+                        <a href="adminDashboard.jsp" class="nav__link">
+                            <i class="fa-solid fa-gauge-high fa-lg nav__icon" style="color: #ffffff;"></i>
+                            <span class="nav__text">Dashboard</span>
+                        </a>
+                        <a href="staffManagement.jsp" class="nav__link">
+                            <i class="fa-solid fa-user-group fa-lg nav__icon" style="color: #ffffff;"></i>
+                            <span class="nav__text">Staff Management</span>
+                        </a>
+                        <a href="labManagement.jsp" class="nav__link ">
+                            <i class="fa-solid fa-flask fa-lg nav__icon" style="color: #ffffff;"></i>
+                            <span class="nav__text">Lab Management</span>
+                        </a>
+                        <a href="wardManagement.jsp" class="nav__link ">
+                            <i class="fa-solid fa-house-medical-circle-check fa-lg nav__icon" style="color: #ffffff;"></i>
+                            <span class="nav__text">Ward Management</span>
+                        </a>
+                        <a href="treatmentManagement.jsp" class="nav__link ">
+                            <i class="fa-solid fa-notes-medical fa-lg nav__icon" style="color: #ffffff;"></i>
+                            <span class="nav__text">Treatment Management</span>
+                        </a>
+                        <a href="pharmacyManagement.jsp" class="nav__link ">
+                            <i class="fa-solid fa-house-medical-flag fa-lg nav__icon" style="color: #ffffff;"></i>
+                            <span class="nav__text">Pharmacy Management</span>
+                        </a>
+                        <a href="patientManagement.jsp" class="nav__link ">
+                            <i class="fa-solid fa-bed fa-lg nav__icon" style="color: #ffffff;"></i>
+                            <span class="nav__text">Patient Management</span>
+                        </a>
+                        <a href="pharmacyInvoice.jsp" class="nav__link ">
+                            <i class="fa-solid fa-receipt fa-lg nav__icon" style="color: #ffffff;"></i>
+                            <span class="nav__text">Pharmacy Invoice</span>
+                        </a>
+                        <a href="pharmacySupplier.jsp" class="nav__link ">
+                            <i class="fa-solid fa-boxes-packing fa-lg nav__icon" style="color: #ffffff;"></i>
+                            <span class="nav__text">Pharmacy Supplier</span>
+                        </a>
+                        <a href="departmentManagement.jsp" class="nav__link">
+                            <i class="fa-solid fa-building-user fa-lg nav__icon" style="color: #ffffff;"></i>
+                            <span class="nav__text">Department Management</span>
+                        </a>
+                        <a href="prescriptionManagement.jsp" class="nav__link ">
+                            <i class="fa-solid fa-file-medical fa-lg nav__icon" style="color: #ffffff;"></i>
+                            <span class="nav__text">Prescription Management</span>
+                        </a>
+                        <a href="adminAppointmentManagement.jsp" class="nav__link ">
+                            <i class="fa-solid fa-person-circle-question fa-lg nav__icon" style="color: #ffffff;"></i>
+                            <span class="nav__text">Appointment Management</span>
+                        </a>
+                        <a href="doctorsManagement.jsp" class="nav__link  active">
+                            <i class="fa-solid fa-user-doctor fa-lg nav__icon" style="color: #ffffff;"></i>
+                            <span class="nav__text">Doctor Management</span>
+                        </a>
+                    </div>
+                </div>
             </nav>
-
-            <!-- Main Content -->
+        </div>
+        <!-- Main Content -->
+        <div class="main-content p-6" id="main-content">
             <div class="flex-1 p-8">
                 <h2 class="text-2xl font-bold mb-4">Doctor Management</h2>
 
@@ -118,6 +170,12 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Insert this block inside the <form> for adding a new doctor -->
+                        <div class="mb-4">
+                            <label for="doctorPassword" class="block text-sm font-medium mb-1">Doctor Password:</label>
+                            <input type="password" id="doctorPassword" name="doctorPassword" required class="input input-bordered w-full">
+                        </div>
+
                         <button type="submit" class="btn btn-primary">Add Doctor</button>
                     </form>
                 </div>
@@ -168,8 +226,12 @@
                                 <td class="py-2 px-4"><%= startTime%></td>
                                 <td class="py-2 px-4"><%= endTime%></td>
                                 <td class="py-2 px-4">
-                                    <a href="updateDoctor.jsp?id=<%= doctorId%>" class="btn btn-sm btn-primary">Update</a>
-                                    <a href="DeleteDoctorServlet?id=<%= doctorId%>" class="btn btn-sm btn-error">Delete</a>
+                                    <a href="updateDoctor.jsp?id=<%= doctorId%>" class="btn btn-sm ">
+                                        <i class="fa-solid fa-pencil fa-xl" style="color: #b698fb;"></i>
+                                    </a>
+                                    <a href="DeleteDoctorServlet?id=<%= doctorId%>" class="btn btn-sm">
+                                        <i class="fa-solid fa-trash-can fa-xl" style="color: #ff0000;"></i>
+                                    </a>
                                 </td>
                             </tr>
                             <%
@@ -206,6 +268,8 @@
 
             </div>
         </div>
+
+        <script src="js/script.js"></script>
 
         <footer class="bg-gray-800 text-white text-center py-4 mt-6">
             <p>© 2025 MediLab Hospital. All rights reserved.</p>
