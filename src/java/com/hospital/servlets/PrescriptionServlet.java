@@ -10,31 +10,46 @@ import javax.servlet.http.*;
 
 @WebServlet(name = "PrescriptionServlet", urlPatterns = {"/PrescriptionServlet"})
 public class PrescriptionServlet extends HttpServlet {
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException {
-        String patientName = request.getParameter("patientName");
-        String treatmentName = request.getParameter("treatmentName");
-        String price = request.getParameter("price");
-        String note = request.getParameter("prescriptionNote");
-
+         
+        // Retrieve basic parameters
+        String userId = request.getParameter("userId");
+        String appointmentIdStr = request.getParameter("appointmentId");
+        int appointmentId = Integer.parseInt(appointmentIdStr);
+        String instructions = request.getParameter("instructions");
+        String issueDate = request.getParameter("issueDate");
+        
+        // Since we used manual add buttons, the following fields already hold comma-separated IDs.
+        String treatmentIdsStr = request.getParameter("treatmentIds");
+        String medicineIdsStr = request.getParameter("medicineIds");
+        
+        Connection con = null;
+        PreparedStatement ps = null;
         try {
-            Connection con = DBConnection.getConnection();
-            String sql = "INSERT INTO PRESCRIPTIONS (PATIENT_NAME, TREATMENT_NAME, PRICE, NOTE, ISSUED_DATE) VALUES (?, ?, ?, ?, CURRENT_DATE)";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, patientName);
-            ps.setString(2, treatmentName);
-            ps.setDouble(3, Double.parseDouble(price));
-            ps.setString(4, note);
+            con = DBConnection.getConnection();
+            String sql = "INSERT INTO PRESCRIPTION (USER_ID, APPOINTMENT_ID, TREATMENT_NAMES, MEDICINES, INSTRUCTIONS, ISSUE_DATE) VALUES (?, ?, ?, ?, ?, ?)";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, userId);
+            ps.setInt(2, appointmentId);
+            ps.setString(3, treatmentIdsStr);
+            ps.setString(4, medicineIdsStr);
+            ps.setString(5, instructions);
+            ps.setString(6, issueDate);
             
             int result = ps.executeUpdate();
-            if(result > 0) {
-                response.sendRedirect("prescriptionManagement.jsp?msg=Prescription Added");
+            if(result > 0){
+                response.sendRedirect("assignPrescription.jsp?msg=Prescription+Assigned");
             } else {
-                response.sendRedirect("prescriptionManagement.jsp?error=Insertion Failed");
+                response.sendRedirect("assignPrescription.jsp?error=Insertion+Failed");
             }
         } catch(Exception e) {
             e.printStackTrace();
-            response.sendRedirect("prescriptionManagement.jsp?error=Exception Occurred");
+            response.sendRedirect("assignPrescription.jsp?error=" + e.getMessage());
+        } finally {
+            if(ps != null) try { ps.close(); } catch(Exception ex){}
+            if(con != null) try { con.close(); } catch(Exception ex){}
         }
     }
 }

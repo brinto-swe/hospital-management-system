@@ -5,7 +5,6 @@
     <listener>
         <listener-class>com.hospital.listeners.AppStartupListener</listener-class>
     </listener>
-
     <!-- SignUpServlet Mapping -->
     <servlet>
         <servlet-name>SignUpServlet</servlet-name>
@@ -52,14 +51,6 @@
         <url-pattern>/TreatmentServlet</url-pattern>
     </servlet-mapping>
     <!-- PharmacyServlet Mapping -->
-    <servlet>
-        <servlet-name>PharmacyServlet</servlet-name>
-        <servlet-class>com.hospital.servlets.PharmacyServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>PharmacyServlet</servlet-name>
-        <url-pattern>/PharmacyServlet</url-pattern>
-    </servlet-mapping>
     <!-- InvoiceServlet Mapping -->
     <servlet>
         <servlet-name>InvoiceServlet</servlet-name>
@@ -168,15 +159,16 @@
         <servlet-name>UpdateStaffServlet</servlet-name>
         <url-pattern>/UpdateStaffServlet</url-pattern>
     </servlet-mapping>
-    <!-- UpdateMedicineServlet Mapping -->
+    <!-- MedicineServlet Mapping -->
     <servlet>
-        <servlet-name>UpdateMedicineServlet</servlet-name>
-        <servlet-class>com.hospital.servlets.UpdateMedicineServlet</servlet-class>
+        <servlet-name>MedicineServlet</servlet-name>
+        <servlet-class>com.hospital.servlets.MedicineServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>UpdateMedicineServlet</servlet-name>
-        <url-pattern>/UpdateMedicineServlet</url-pattern>
+        <servlet-name>MedicineServlet</servlet-name>
+        <url-pattern>/MedicineServlet</url-pattern>
     </servlet-mapping>
+
     <!-- UpdateAppointmentServlet Mapping -->
     <servlet>
         <servlet-name>UpdateAppointmentServlet</servlet-name>
@@ -186,15 +178,8 @@
         <servlet-name>UpdateAppointmentServlet</servlet-name>
         <url-pattern>/UpdateAppointmentServlet</url-pattern>
     </servlet-mapping>
-    <!-- UpdatePrescriptionServlet Mapping -->
-    <servlet>
-        <servlet-name>UpdatePrescriptionServlet</servlet-name>
-        <servlet-class>com.hospital.servlets.UpdatePrescriptionServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>UpdatePrescriptionServlet</servlet-name>
-        <url-pattern>/UpdatePrescriptionServlet</url-pattern>
-    </servlet-mapping>
+    
+
     <!-- UpdateDepartmentServlet Mapping -->
     <servlet>
         <servlet-name>UpdateDepartmentServlet</servlet-name>
@@ -213,7 +198,7 @@
         <servlet-name>DeleteMedicineServlet</servlet-name>
         <url-pattern>/DeleteMedicineServlet</url-pattern>
     </servlet-mapping>
-<!-- DeleteAppointmentServlet Mapping -->
+    <!-- DeleteAppointmentServlet Mapping -->
     <servlet>
         <servlet-name>DeleteAppointmentServlet</servlet-name>
         <servlet-class>com.hospital.servlets.DeleteAppointmentServlet</servlet-class>
@@ -222,18 +207,8 @@
         <servlet-name>DeleteAppointmentServlet</servlet-name>
         <url-pattern>/DeleteAppointmentServlet</url-pattern>
     </servlet-mapping>
-
-<!-- DeletePrescriptionServlet Mapping -->
-    <servlet>
-        <servlet-name>DeletePrescriptionServlet</servlet-name>
-        <servlet-class>com.hospital.servlets.DeletePrescriptionServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>DeletePrescriptionServlet</servlet-name>
-        <url-pattern>/DeletePrescriptionServlet</url-pattern>
-    </servlet-mapping>
-
-<!-- DoctorServlet -->
+    
+    <!-- DoctorServlet -->
     <servlet>
         <servlet-name>DoctorServlet</servlet-name>
         <servlet-class>com.hospital.servlets.DoctorServlet</servlet-class>
@@ -242,8 +217,7 @@
         <servlet-name>DoctorServlet</servlet-name>
         <url-pattern>/DoctorServlet</url-pattern>
     </servlet-mapping>
-
-<!-- UpdateDoctorServlet Mapping -->
+    <!-- UpdateDoctorServlet Mapping -->
     <servlet>
         <servlet-name>UpdateDoctorServlet</servlet-name>
         <servlet-class>com.hospital.servlets.UpdateDoctorServlet</servlet-class>
@@ -252,8 +226,7 @@
         <servlet-name>UpdateDoctorServlet</servlet-name>
         <url-pattern>/UpdateDoctorServlet</url-pattern>
     </servlet-mapping>
-
-<!-- DeleteDoctorServlet -->
+    <!-- DeleteDoctorServlet -->
     <servlet>
         <servlet-name>DeleteDoctorServlet</servlet-name>
         <servlet-class>com.hospital.servlets.DeleteDoctorServlet</servlet-class>
@@ -262,7 +235,6 @@
         <servlet-name>DeleteDoctorServlet</servlet-name>
         <url-pattern>/DeleteDoctorServlet</url-pattern>
     </servlet-mapping>
-
     <!-- DoctorLoginServlet: Processes doctor login requests -->
     <servlet>
         <servlet-name>DoctorLoginServlet</servlet-name>
@@ -272,7 +244,6 @@
         <servlet-name>DoctorLoginServlet</servlet-name>
         <url-pattern>/DoctorLoginServlet</url-pattern>
     </servlet-mapping>
-    
     <!-- UpdateAppointmentStatusServlet: Updates appointment status from 'pending' to 'done' -->
     <servlet>
         <servlet-name>UpdateAppointmentStatusServlet</servlet-name>
@@ -282,11 +253,7 @@
         <servlet-name>UpdateAppointmentStatusServlet</servlet-name>
         <url-pattern>/UpdateAppointmentStatusServlet</url-pattern>
     </servlet-mapping>
-
-
-
-
- <!-- ApproveUserServlet: Admin approves pending user signup requests -->
+    <!-- ApproveUserServlet: Admin approves pending user signup requests -->
     <servlet>
         <servlet-name>ApproveUserServlet</servlet-name>
         <servlet-class>com.hospital.servlets.ApproveUserServlet</servlet-class>
@@ -295,7 +262,6 @@
         <servlet-name>ApproveUserServlet</servlet-name>
         <url-pattern>/ApproveUserServlet</url-pattern>
     </servlet-mapping>
-
     <!-- UserLoginServlet: Handles user login requests -->
     <servlet>
         <servlet-name>UserLoginServlet</servlet-name>
@@ -305,7 +271,6 @@
         <servlet-name>UserLoginServlet</servlet-name>
         <url-pattern>/UserLoginServlet</url-pattern>
     </servlet-mapping>
-    
     <!-- AdminLoginServlet: Handles admin login requests -->
     <servlet>
         <servlet-name>AdminLoginServlet</servlet-name>
@@ -315,7 +280,6 @@
         <servlet-name>AdminLoginServlet</servlet-name>
         <url-pattern>/AdminLoginServlet</url-pattern>
     </servlet-mapping>
-    
     <!-- BookAppointmentServlet: Processes appointment booking -->
     <servlet>
         <servlet-name>BookAppointmentServlet</servlet-name>
@@ -325,7 +289,6 @@
         <servlet-name>BookAppointmentServlet</servlet-name>
         <url-pattern>/BookAppointmentServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet>
         <servlet-name>TestNameServlet</servlet-name>
         <servlet-class>com.hospital.servlets.TestNameServlet</servlet-class>
@@ -334,7 +297,6 @@
         <servlet-name>TestNameServlet</servlet-name>
         <url-pattern>/TestNameServlet</url-pattern>
     </servlet-mapping>
-    
     <!-- AssignLabTestServlet: For doctors to assign lab tests to a user -->
     <servlet>
         <servlet-name>AssignLabTestServlet</servlet-name>
@@ -344,7 +306,6 @@
         <servlet-name>AssignLabTestServlet</servlet-name>
         <url-pattern>/AssignLabTestServlet</url-pattern>
     </servlet-mapping>
-
     <!-- UpdateLabReportServlet: For admin to input/edit lab test results -->
     <servlet>
         <servlet-name>UpdateLabReportServlet</servlet-name>
@@ -354,7 +315,6 @@
         <servlet-name>UpdateLabReportServlet</servlet-name>
         <url-pattern>/UpdateLabReportServlet</url-pattern>
     </servlet-mapping>
-    
     <!-- DoctorLabReportsServlet: Handles filtering lab reports by Appointment ID and Date -->
     <servlet>
         <servlet-name>DoctorLabReportsServlet</servlet-name>
@@ -364,7 +324,6 @@
         <servlet-name>DoctorLabReportsServlet</servlet-name>
         <url-pattern>/DoctorLabReportsServlet</url-pattern>
     </servlet-mapping>
-
     <!-- ViewLabReportServlet: Retrieves lab report details when clicking 'View Report' -->
     <servlet>
         <servlet-name>ViewLabReportServlet</servlet-name>
@@ -374,6 +333,17 @@
         <servlet-name>ViewLabReportServlet</servlet-name>
         <url-pattern>/ViewLabReportServlet</url-pattern>
     </servlet-mapping>
+    
+<!--    UserAppointmentsServlet-->
+    <servlet>
+        <servlet-name>UserAppointmentsServlet</servlet-name>
+        <servlet-class>com.hospital.servlets.UserAppointmentsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserAppointmentsServlet</servlet-name>
+        <url-pattern>/UserAppointmentsServlet</url-pattern>
+    </servlet-mapping>
+
     <!-- (Optional) Welcome File List -->
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

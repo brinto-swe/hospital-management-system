@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     </head>
     <body class="bg-gray-100">
-         <header class="flex none">
+        <header class="flex none">
             <div class="">
                 <img src="images/logo.png" alt="MediLab Hospital" style="height:40px;">
             </div>
@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="nav__list">
-                        <a href="adminDashboard.jsp" class="nav__link">
+                        <a href="adminDashboard.jsp" class="nav__link ">
                             <i class="fa-solid fa-gauge-high fa-lg nav__icon" style="color: #ffffff;"></i>
                             <span class="nav__text">Dashboard</span>
                         </a>
@@ -49,7 +49,7 @@
                             <i class="fa-solid fa-user-group fa-lg nav__icon" style="color: #ffffff;"></i>
                             <span class="nav__text">Staff Management</span>
                         </a>
-                        <a href="labManagement.jsp" class="nav__link ">
+                        <a href="adminLabManagement.jsp" class="nav__link ">
                             <i class="fa-solid fa-flask fa-lg nav__icon" style="color: #ffffff;"></i>
                             <span class="nav__text">Lab Management</span>
                         </a>
@@ -61,29 +61,13 @@
                             <i class="fa-solid fa-notes-medical fa-lg nav__icon" style="color: #ffffff;"></i>
                             <span class="nav__text">Treatment Management</span>
                         </a>
-                        <a href="pharmacyManagement.jsp" class="nav__link ">
+                        <a href="medicineManagement.jsp" class="nav__link ">
                             <i class="fa-solid fa-house-medical-flag fa-lg nav__icon" style="color: #ffffff;"></i>
                             <span class="nav__text">Pharmacy Management</span>
-                        </a>
-                        <a href="patientManagement.jsp" class="nav__link ">
-                            <i class="fa-solid fa-bed fa-lg nav__icon" style="color: #ffffff;"></i>
-                            <span class="nav__text">Patient Management</span>
-                        </a>
-                        <a href="pharmacyInvoice.jsp" class="nav__link ">
-                            <i class="fa-solid fa-receipt fa-lg nav__icon" style="color: #ffffff;"></i>
-                            <span class="nav__text">Pharmacy Invoice</span>
-                        </a>
-                        <a href="pharmacySupplier.jsp" class="nav__link ">
-                            <i class="fa-solid fa-boxes-packing fa-lg nav__icon" style="color: #ffffff;"></i>
-                            <span class="nav__text">Pharmacy Supplier</span>
                         </a>
                         <a href="departmentManagement.jsp" class="nav__link ">
                             <i class="fa-solid fa-building-user fa-lg nav__icon" style="color: #ffffff;"></i>
                             <span class="nav__text">Department Management</span>
-                        </a>
-                        <a href="prescriptionManagement.jsp" class="nav__link ">
-                            <i class="fa-solid fa-file-medical fa-lg nav__icon" style="color: #ffffff;"></i>
-                            <span class="nav__text">Prescription Management</span>
                         </a>
                         <a href="adminAppointmentManagement.jsp" class="nav__link ">
                             <i class="fa-solid fa-address-book fa-lg nav__icon" style="color: #ffffff;"></i>

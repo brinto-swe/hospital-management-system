@@ -23,22 +23,47 @@
         </style>
     </head>
     <body class="bg-gray-100">
-        <header>
-            <div class="logo">
+        <header class="flex none">
+            <div class="">
                 <img src="images/logo.png" alt="MediLab Hospital" style="height:40px;">
             </div>
-            <nav class="homepage-nav">
-                <ul>
-                    <li><a href="index.jsp">Home</a></li>
-                    <li><a href="about.jsp">About Us</a></li>
-                    <li><a href="signup.jsp">Sign Up</a></li>
-                    <li class="active"><a href="userAppoinment.jsp">Appoinment</a></li>
-                    <li><a href="contact.jsp">Contact</a></li>
-                </ul>
-            </nav>
+            <h1 class="text-3xl font-bold">Take Appointment</h1>
+            <a href="logout.jsp">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
         </header>
+        <div class="l-navbar" id="navbar">
+            <nav class="nav">
+                <div>
 
-        <div class="container mx-auto place-items-center p-6">
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="fas fa-angle-double-right"></i>
+                    </div>
+
+                    <div class="nav__list">                        
+                        <a href="userAppointments.jsp" class="nav__link ">
+                            <i class="fa-solid fa-flask fa-lg nav__icon" style="color: #ffffff;"></i>
+                            <span class="nav__text">My Appointments</span>
+                        </a>
+                        <a href="userAppointment.jsp" class="nav__link active">
+                            <i class="fa-solid fa-gauge-high fa-lg nav__icon" style="color: #ffffff;"></i>
+                            <span class="nav__text">Take Appointment</span>
+                        </a>
+                        <a href="userPrescription.jsp" class="nav__link ">
+                            <i class="fa-solid fa-flask fa-lg nav__icon" style="color: #ffffff;"></i>
+                            <span class="nav__text">View Prescriptions</span>
+                        </a>
+                        <a href="invoice.jsp" class="nav__link ">
+                            <i class="fa-solid fa-notes-medical fa-lg nav__icon" style="color: #ffffff;"></i>
+                            <span class="nav__text">Invoice</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="main-content place-items-center p-6" id="main-content">
             <!-- Step 1: Select Date, Time, and Department -->
             <div class="card bg-white shadow-lg p-6 rounded mb-6 items-center">
                 <h2 class="text-2xl font-bold mb-4">Step 1: Select Details</h2>
@@ -197,7 +222,9 @@
 
         </div>
 
-        <footer class="bg-gray-800 text-white text-center py-4 mt-6">
+        <script src="js/script.js"></script>
+
+        <footer style="clear:both; text-align:center;">
             <p>© 2025 MediLab Hospital. All rights reserved.</p>
         </footer>
     </body>
