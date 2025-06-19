@@ -1,4 +1,5 @@
 # hospital-management-system
+Hello . This is K M Mozaddedul Islam. Studying in Yangzhou University.
 This is the complete Hospital Management System I have created in my 3rd year second semister for the subject of J2EE Technology. 
 
 This project I did in Netbean 7.1 (Jdk7) , 
